@@ -3,9 +3,10 @@
 
 import re
 import requests
+import urllib.request
+from urllib import parse
 from bs4 import BeautifulSoup
 from flask import Flask, render_template
-
 
 def filter(string):
     return re.sub('[^0-9,.]',' ',string)
@@ -27,3 +28,19 @@ if __name__ == '__main__':
     for n in [0,1,2,10]:
         data_f = filter(data[n].get_text()).split()
         print(data_f[2])
+
+    #KOSPI, KOSDAQ 지수
+    url2 = 'https://finance.naver.com/sise/'
+
+    fp = urllib.request.urlopen(url2)
+    source = fp.read()
+    fp.close()
+
+    html2 = BeautifulSoup(source, "html.parser")
+    html2 = html2.findAll("span", class_="num")
+
+    kospi_value = html2[0].string
+    kosdaq_value = html2[1].string
+    print('코스피 지수: ' + kospi_value)
+    print('코스닥 지수: ' + kosdaq_value)
+
