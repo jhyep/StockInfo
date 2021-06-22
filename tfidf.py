@@ -8,6 +8,7 @@ from bs4 import BeautifulSoup
 from urllib.request import urlopen
 from nltk import word_tokenize
 #from konlpy.tag import Kkma
+import project
 
 word_d = {}
 sent_list = []
@@ -72,7 +73,7 @@ def compute_idf():
 
 if __name__ == '__main__':
 
-    base_url = 'https://finance.naver.com//item/news_news.nhn?code=035420&page={}&sm=title_entity_id.basic&culsterld='
+    base_url = 'https://finance.naver.com//item/news_news.nhn?code=005380&page={}&sm=title_entity_id.basic&culsterld='
 
     for i in range(5):
         url = base_url.format(i+1)
@@ -97,4 +98,4 @@ if __name__ == '__main__':
             tfidf[word] = tfval*idf_d[word]
     #많이 나오는 단어가 값이 낮게 나와 추가한 오름차순 정렬(...)
     tfidf = sorted(tfidf.items(), key=lambda item:item[1])
-    print(tfidf)
+    print(tfidf[:20])
