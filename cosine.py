@@ -6,11 +6,11 @@ import project
 word_d={}
 sent_list=[]
 
-def hfilter(s):
-	return re.sub(u'[a-zA-Z\u3130-\u318f\uac00-\ud7a3]',' ',s)
 
-def filter_pos(s):
-	return re.sub(u'[와과을를들]',' ',s)
+
+
+
+
 
 
 def process_new_sentence(s):

@@ -1,9 +1,15 @@
 #!/usr/bin/python3
 
+import re
 import requests
 from bs4 import BeautifulSoup
 from urllib.request import urlopen
 
+def hfilter(s):
+	return re.sub(u'[^a-zA-Z\u3130-\u318f\uac00-\ud7a3]',' ',s)
+
+def filter_pos(s):
+	return re.sub(u'[와과을를들]',' ',s)
 
 def getnews(stockId):
 	news=[]	
@@ -16,19 +22,21 @@ def getnews(stockId):
 
 		result = soup.findAll('td', attrs={'class':'title'}) 
 		for tag in result:
-			content = tag.a.text
-			news.append(content)
+			content = hfilter(tag.a.text)
+			news_title = filter_pos(content)	
+			news.append(news_title)
 	return news	
 
-"""
-if __name__ == '__main__':
-	company1=getnews('005930')
-	str1="".join(company1)
-	print(str1)
-	company2=getnews('102280')
-	str2="".join(company2)
-	print(str2)
-	company3=getnews('068270')
-	str3="".join(company3)
-	print(str3)
-"""
+
+
+
+
+
+
+
+
+
+
+
+
+
