@@ -14,8 +14,6 @@ def filter(string):
 
 def getStockInfo(stockId):
     
-    #종목 코드 받아오는 기능 추가할 것
-
     url = 'https://finance.naver.com/item/main.nhn?code='+stockId
     res = requests.get(url)
     
