@@ -1,16 +1,16 @@
 #!/usr/bin/python3
 import numpy
 from nltk import word_tokenize
-import project
+import crawling
 
 word_d={}
 sent_list=[]
 
-def hfilter(s):
-	return re.sub(u'[a-zA-Z\u3130-\u318f\uac00-\ud7a3]',' ',s)
 
-def filter_pos(s):
-	return re.sub(u'[와과을를들]',' ',s)
+
+
+
+
 
 
 def process_new_sentence(s):
@@ -34,9 +34,9 @@ def make_vector(i):
 	return v	
 
 if __name__ == '__main__':
-	process_new_sentence(str(project.getnews('005930')))
-	process_new_sentence(str(project.getnews('102280')))
-	process_new_sentence(str(project.getnews('068270')))
+	process_new_sentence(str(crawling.getnews('000270')))
+	process_new_sentence(str(crawling.getnews('005380')))
+	process_new_sentence(str(crawling.getnews('352820')))
 	v1=make_vector(0)
 	v2=make_vector(1)
 	v3=make_vector(2)
