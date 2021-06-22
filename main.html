@@ -67,6 +67,10 @@
         .sch_smit:hover {
             background: skyblue;
         }
+        .info {
+            border: 1px solid #bbb
+            width: 400px; height: 400px;
+        }
     </style>
 </head>
 <body>
@@ -89,6 +93,11 @@
     </nav>
     <img src="https://raw.githubusercontent.com/HeewonP825/New-repository/Logo/KakaoTalk_20210602_165443093.png"
          class="Logo")>
+    <div class="info">
+        <span class='green_window'>
+            <input id=text type="text" class='input_text' name="search" onkeydown="enterSearch()"/></span>
+        <input type="button" class='sch_smit' value="검색" onclick="myFunction()"/>
+    </div>
     <!--<div class="search">
         <input type="text" class="searchbar" placeholder="종목코드를 입력해주세요.">
         <button class="fas fa-search"></button>
@@ -96,7 +105,6 @@
     </div>-->
     <!--<input type="button" class="box" value="click">-->
     <!--<input type="button" class="box" value="I'm feeling Lucky">-->
-<!-- HTML -->
 <!-- JAVASCRIPT -->
     <script type="text/javascript">
         function enterSearch() {
@@ -108,6 +116,15 @@
             var x = document.getElementById("text").value;
             window.location.href = "http://cybertramp.net/search/"+x;
         }
+        $(document).ready(function() {
+            $("#keyword").keyup(function() {
+                var k = $(this).val();
+                $("#user-table > tbody > tr").hide();
+                var temp = $("#user-table > tbody > tr > td:nth-child(5n+2):contains('" + k + "')");
+
+                $(temp).parent().show();
+            })
+        })
     </script>
 </body>
 </html>
