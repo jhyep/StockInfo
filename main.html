@@ -37,6 +37,36 @@
             top: 20px;
             margin: 0;
         }
+        .green_window {
+            display: inline-block;
+            width: 366px; height: 34px;
+            border: 1px solid #bbb;
+            background: white;
+            font-family: fontAwesome;
+            text-align: center;
+        }
+        .input_text {
+            width: 348px; height: 21px;
+            margin: 6px 0 0 9px;
+            border: 0;
+            line-height: 21px;
+            font-weight: bold;
+            font-size: 16px;
+            outline: none;
+        }
+        .sch_smit {
+            width: 54px; height: 35px;
+            margin: 0; border: 0;
+            vertical-align: top;
+            background: blue;
+            color: white;
+            font-weight: bold;
+            border-radius: 1px;
+            cursor: pointer;
+        }
+        .sch_smit:hover {
+            background: skyblue;
+        }
     </style>
 </head>
 <body>
@@ -44,8 +74,13 @@
         <div class="container">
             <a href="#" class="navbar-brand">
                 StockInfo
-            </a> 
+            </a>
             <ul class="nav">
+                <li>
+                    <span class='green_window'>
+                    <input id=text type="text" class='input_text' name="search" onkeydown="enterSearch()"/></span>
+                    <input type="button" class='sch_smit' value="검색" onclick="myFunction()"/>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="https://finance.naver.com/main/main.nhn">Finance</a>
                 </li>
@@ -54,12 +89,25 @@
     </nav>
     <img src="https://raw.githubusercontent.com/HeewonP825/New-repository/Logo/KakaoTalk_20210602_165443093.png"
          class="Logo")>
-    <div class="search">
+    <!--<div class="search">
         <input type="text" class="searchbar" placeholder="종목코드를 입력해주세요.">
         <button class="fas fa-search"></button>
-        <!--<i class="fas fa-search"></i>-->
-    </div>
+        <i class="fas fa-search"></i>
+    </div>-->
     <!--<input type="button" class="box" value="click">-->
     <!--<input type="button" class="box" value="I'm feeling Lucky">-->
+<!-- HTML -->
+<!-- JAVASCRIPT -->
+    <script type="text/javascript">
+        function enterSearch() {
+            if(event.keyCode == 13){
+                myFunction();  // 실행할 이벤트
+            }
+        }
+        function myFunction() {
+            var x = document.getElementById("text").value;
+            window.location.href = "http://cybertramp.net/search/"+x;
+        }
+    </script>
 </body>
 </html>
