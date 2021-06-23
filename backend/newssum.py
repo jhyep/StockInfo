@@ -14,9 +14,8 @@ kkma = Kkma()
 def hfilter(s):
     return re.sub(u'[^.a-zA-Z\u3130-\u318f\uac00-\ud7a3]',' ',s)
 
-if __name__=='__main__':
+def newssum(url):
     
-    url = 'https://finance.naver.com/item/news_read.nhn?article_id=0000735435&office_id=366&code=o96770&page=&sm=title_entity_id.basic'
     r=requests.get(url)
 
     soup = BeautifulSoup(r.text, 'html.parser')
@@ -25,4 +24,4 @@ if __name__=='__main__':
     for tag in result:
         content = tag.text
 
-    print(summarize(content))
+    return summarize(content)
