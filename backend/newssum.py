@@ -24,8 +24,5 @@ if __name__=='__main__':
 
     for tag in result:
         content = tag.text
-    #print(content)
 
-    #v = convert_pdf_to_txt('/home/jhp/1624319090497.pdf') 
-    #print(v)
     print(summarize(content))
