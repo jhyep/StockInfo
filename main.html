@@ -54,6 +54,11 @@
             font-size: 16px;
             outline: none;
         }
+        .searchCode {
+            float: right;
+            border: 1px solid #bbb
+            width: 400px; height: 400px;
+        }
         .sch_smit {
             width: 54px; height: 35px;
             margin: 0; border: 0;
@@ -71,9 +76,18 @@
             border: 1px solid #bbb
             width: 400px; height: 400px;
         }
+        .footer {
+
+        }
+        .mainInfo {
+            float: left;
+            border: 1px solid #bbb
+            width: 600px; height: 800px;
+        }
     </style>
 </head>
 <body>
+    <div>
     <nav class="navbar navbar-dark bg-primary">
         <div class="container">
             <a href="#" class="navbar-brand">
@@ -81,9 +95,9 @@
             </a>
             <ul class="nav">
                 <li>
-                    <aside><span class='green_window'>
+                    <span class='green_window'>
                     <input id=text type="text" class='input_text' name="search" onkeydown="enterSearch()"/></span>
-                        <input type="button" class='sch_smit' value="검색" onclick="myFunction()"/></aside>
+                    <input type="button" class='sch_smit' value="검색" onclick="myFunction()"/>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="https://finance.naver.com/main/main.nhn">Finance</a>
@@ -93,18 +107,25 @@
     </nav>
     <img src="https://raw.githubusercontent.com/HeewonP825/New-repository/Logo/KakaoTalk_20210602_165443093.png"
          class="Logo")>
-    <div id="input-form">
-        <input placeholder="Type to Search">
-        <input type="file" accept="text/plain"/>
-        <button onclick="openTextFile()">open</button>
+    <div class="content">
+        <section class="mainInfo">검색결과부분</section>
+        <aside class="searchCode">
+            <!--<input placeholder="Type to Search">
+            <input type="file" accept="text/plain"/>
+            <button onclick="openTextFile()">open</button>-->
+            <p>종목코드검색 & 코스피/코스닥 부분</p>
+            <a href="searchCode.html"><button class="sch_smit" onclick="openTextFile()">open</button></a>
+        </aside>
     </div>
+    <footer class="footer"></footer>
     <!--<div class="search">
         <input type="text" class="searchbar" placeholder="종목코드를 입력해주세요.">
         <button class="fas fa-search"></button>
         <i class="fas fa-search"></i>
     </div>-->
     <!--<input type="button" class="box" value="click">-->
-    <!--<input type="button" class="box" value="I'm feeling Lucky">-->
+        <!--<input type="button" class="box" value="I'm feeling Lucky">-->
+    </div>
 <!-- JAVASCRIPT -->
     <script type="text/javascript">
         function enterSearch() {
