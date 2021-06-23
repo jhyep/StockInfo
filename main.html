@@ -94,8 +94,9 @@
     <img src="https://raw.githubusercontent.com/HeewonP825/New-repository/Logo/KakaoTalk_20210602_165443093.png"
          class="Logo")>
     <div id="input-form">
-        <input onkeyup="filter()" type="text" id="value" placeholder="Type to Search">
-        <input type="button" class='sch_smit' value="검색" onclick="ready()"/>
+        <input placeholder="Type to Search">
+        <input type="file" accept="text/plain"/>
+        <button onclick="openTextFile()">open</button>
     </div>
     <!--<div class="search">
         <input type="text" class="searchbar" placeholder="종목코드를 입력해주세요.">
@@ -115,21 +116,24 @@
             var x = document.getElementById("text").value;
             window.location.href = "http://cybertramp.net/search/"+x;
         }
-        function filter(){
+        function openTextFile() {
+            var input = document.createElement("input");
 
-            var value, name, item, i;
+            input.type = "file";
+            input.accept = "text/plain, text?html, .jsp";
 
-            value = document.getElementById("value").value.toUpperCase();
-            item = document.getElementsByClassName("item");
+            input.click();
+            input.onchange = function(event) {
+                processFile(event.target.files[0]);
+            };
+        }
+        function processFile(file) {
+            var reader = new FileReader();
+            reader.readAsText(file, "UTF-8");
 
-            for(i=0;i<item.length;i++){
-                name = item[i].getElementsByClassName("name");
-                if(name[0].innerHTML.toUpperCase().indexOf(value) > -1){
-                    item[i].style.display = "flex";
-                }else{
-                    item[i].style.display = "none";
-                }
-            }
+            reader.onLoad = function() {
+                output.innerText = reader.result;
+            };
         }
     </script>
 </body>
