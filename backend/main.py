@@ -22,7 +22,11 @@ def getStockInfo():
         stockInfo['date'] = datetime.date.today().isoformat()
         es.index('stock-info',stockInfo,id=stockId)
         
-    return stockInfo
+    return str(stockInfo)
+
+@app.route('./getIndex')
+def getIndex():
+    return str(infocrawl.getIndex())
 
 
 app.run("127.0.0.1",5000)
