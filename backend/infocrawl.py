@@ -46,8 +46,11 @@ def getIndex():
 
     kospi_value = html2[0].string
     kosdaq_value = html2[1].string
-    print('코스피 지수: ' + kospi_value)
-    print('코스닥 지수: ' + kosdaq_value)
+    dictionary=dict()
+    dictionary['kospi']=kospi_value
+    dictionary['kosdaq']=kosdaq_value
+    return dictionary
+    
 
 if __name__=='__main__':
     print(getStockInfo('005930'))
