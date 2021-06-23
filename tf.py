@@ -67,7 +67,7 @@ def getnews(stockId):
 
 if __name__ == '__main__':
     
-    titles = filter_pos(hfilter((str(getnews('352820')))))
+    titles = filter_pos(hfilter((str(getnews('032640')))))
     process_new_sentence(titles)
     
     tf = {}

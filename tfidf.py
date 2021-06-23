@@ -8,7 +8,7 @@ from bs4 import BeautifulSoup
 from urllib.request import urlopen
 from nltk import word_tokenize
 #from konlpy.tag import Kkma
-import project
+
 
 word_d = {}
 sent_list = []
@@ -92,7 +92,7 @@ if __name__ == '__main__':
     idf_d = compute_idf()
     for i in range(0, len(sent_list)):
         tf_d = compute_tf(sent_list[i])
-
+	print(tf_d[i])
         for word, tfval in tf_d.items():
             #딕셔너리에 단어: tfidf 값 추가
             tfidf[word] = tfval*idf_d[word]

@@ -34,9 +34,12 @@ def make_vector(i):
 	return v	
 
 if __name__ == '__main__':
-	process_new_sentence(str(crawling.getnews('000270')))
-	process_new_sentence(str(crawling.getnews('005380')))
-	process_new_sentence(str(crawling.getnews('352820')))
+	process_new_sentence(str(crawling.getnews('032850')))
+	process_new_sentence(str(crawling.getnews('030520')))
+	process_new_sentence(str(crawling.getnews('010950')))
+
+
+
 	v1=make_vector(0)
 	v2=make_vector(1)
 	v3=make_vector(2)
