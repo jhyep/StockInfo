@@ -81,9 +81,9 @@
             </a>
             <ul class="nav">
                 <li>
-                    <span class='green_window'>
+                    <aside><span class='green_window'>
                     <input id=text type="text" class='input_text' name="search" onkeydown="enterSearch()"/></span>
-                    <input type="button" class='sch_smit' value="검색" onclick="myFunction()"/>
+                        <input type="button" class='sch_smit' value="검색" onclick="myFunction()"/></aside>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="https://finance.naver.com/main/main.nhn">Finance</a>
@@ -93,10 +93,9 @@
     </nav>
     <img src="https://raw.githubusercontent.com/HeewonP825/New-repository/Logo/KakaoTalk_20210602_165443093.png"
          class="Logo")>
-    <div class="info">
-        <span class='green_window'>
-            <input id=text type="text" class='input_text' name="search" onkeydown="enterSearch()"/></span>
-        <input type="button" class='sch_smit' value="검색" onclick="myFunction()"/>
+    <div id="input-form">
+        <input onkeyup="filter()" type="text" id="value" placeholder="Type to Search">
+        <input type="button" class='sch_smit' value="검색" onclick="ready()"/>
     </div>
     <!--<div class="search">
         <input type="text" class="searchbar" placeholder="종목코드를 입력해주세요.">
@@ -116,15 +115,22 @@
             var x = document.getElementById("text").value;
             window.location.href = "http://cybertramp.net/search/"+x;
         }
-        $(document).ready(function() {
-            $("#keyword").keyup(function() {
-                var k = $(this).val();
-                $("#user-table > tbody > tr").hide();
-                var temp = $("#user-table > tbody > tr > td:nth-child(5n+2):contains('" + k + "')");
+        function filter(){
 
-                $(temp).parent().show();
-            })
-        })
+            var value, name, item, i;
+
+            value = document.getElementById("value").value.toUpperCase();
+            item = document.getElementsByClassName("item");
+
+            for(i=0;i<item.length;i++){
+                name = item[i].getElementsByClassName("name");
+                if(name[0].innerHTML.toUpperCase().indexOf(value) > -1){
+                    item[i].style.display = "flex";
+                }else{
+                    item[i].style.display = "none";
+                }
+            }
+        }
     </script>
 </body>
 </html>
