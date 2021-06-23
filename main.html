@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>StockInfo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+          crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <script src="https://kit.fontawesome.com/8eb5905426.js" crossorigin="anonymous"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        .Logo {
+            width: 400px;
+            display: block;
+            text-align: center;
+            margin: auto;
+        }
+        .search {
+            position: relative;
+            text-align: center;
+            width: 400px;
+            margin: 0 auto;
+        }
+        .searchbar {
+            width: 100%;
+            border-radius: 20px;
+            border: 1px solid #bbb;
+            margin: 10px 0;
+            padding: 10px 12px;
+            font-family: fontAwesome;
+        }
+        .fa-search {
+            left: 15px;
+            top: 20px;
+            margin: 0;
+        }
+        .green_window {
+            display: inline-block;
+            width: 366px; height: 34px;
+            border: 1px solid #bbb;
+            background: white;
+            font-family: fontAwesome;
+            text-align: center;
+        }
+        .input_text {
+            width: 348px; height: 21px;
+            margin: 6px 0 0 9px;
+            border: 0;
+            line-height: 21px;
+            font-weight: bold;
+            font-size: 16px;
+            outline: none;
+        }
+        .searchCode {
+            float: right;
+            border: 1px solid #bbb
+            width: 400px; height: 400px;
+        }
+        .sch_smit {
+            width: 54px; height: 35px;
+            margin: 0; border: 0;
+            vertical-align: top;
+            background: blue;
+            color: white;
+            font-weight: bold;
+            border-radius: 1px;
+            cursor: pointer;
+        }
+        .sch_smit:hover {
+            background: skyblue;
+        }
+        .info {
+            border: 1px solid #bbb
+            width: 400px; height: 400px;
+        }
+        .footer {
+
+        }
+        .mainInfo {
+            float: left;
+            border: 1px solid #bbb
+            width: 600px; height: 800px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+    <nav class="navbar navbar-dark bg-primary">
+        <div class="container">
+            <a href="#" class="navbar-brand">
+                StockInfo
+            </a>
+            <ul class="nav">
+                <li>
+                    <span class='green_window'>
+                    <input id=text type="text" class='input_text' name="search" onkeydown="enterSearch()"/></span>
+                    <input type="button" class='sch_smit' value="Click" onclick="myFunction()"/>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://finance.naver.com/main/main.nhn">Finance</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <img src="https://raw.githubusercontent.com/HeewonP825/New-repository/Logo/KakaoTalk_20210602_165443093.png"
+         class="Logo")>
+    <div class="content">
+        <aside class="searchCode">
+            <!--<input placeholder="Type to Search">
+            <input type="file" accept="text/plain"/>
+            <button onclick="openTextFile()">open</button>-->
+            <p>종목코드검색 & 코스피/코스닥 부분</p>
+            <a href="searchCode.html"><button class="sch_smit" onclick="openTextFile()">open</button></a>
+        </aside>
+    </div>
+    <footer class="footer"></footer>
+    <div class="search">
+        <input type="text" class="searchbar" placeholder="뉴스 URL을 입력해주세요.">
+        <input type="button" class='sch_smit' value="Click" onclick="myFunction()"/>
+    </div>
+    <section class="mainInfo">검색결과부분</section>
+    <!--<input type="button" class="box" value="click">-->
+        <!--<input type="button" class="box" value="I'm feeling Lucky">-->
+    </div>
+<!-- JAVASCRIPT -->
+    <script type="text/javascript">
+        function enterSearch() {
+            if(event.keyCode == 13){
+                myFunction();  // 실행할 이벤트
+            }
+        }
+        function myFunction() {
+            var x = document.getElementById("text").value;
+            window.location.href = "http://www.naver.com"+x;
+        }
+        function openTextFile() {
+            var input = document.createElement("input");
+
+            input.type = "file";
+            input.accept = "text/plain, text?html, .jsp";
+
+            input.click();
+            input.onchange = function(event) {
+                processFile(event.target.files[0]);
+            };
+        }
+        function processFile(file) {
+            var reader = new FileReader();
+            reader.readAsText(file, "UTF-8");
+
+            reader.onLoad = function() {
+                output.innerText = reader.result;
+            };
+        }
+    </script>
+</body>
+</html>
